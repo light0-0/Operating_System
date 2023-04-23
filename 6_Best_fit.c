@@ -23,7 +23,7 @@ int main()
         int best_fit=-1;
         for(j=0;j<block;j++)
         {
-             if(pro_size[i]<block_size[j] && on_off[j]==0)
+             if(pro_size[i]<=block_size[j] && on_off[j]==0)
              {
                 if(best_fit==-1 || block_size[j]<block_size[best_fit])
                 {
@@ -31,14 +31,14 @@ int main()
                 }
              }
         }
-        if(best_fit != j)
+        if(best_fit != -1)
         {
             printf("The process size %d is allotaed to memory %d\n",pro_size[i],block_size[best_fit]);
             on_off[best_fit]=1;
         }
         else
         {
-            printf("Unable to allocate process size %d\n",pro_size[n]);
+            printf("Unable to allocate process size %d\n",pro_size[i]);
         }
    }
    return 0;
